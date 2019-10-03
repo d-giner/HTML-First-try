@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Worst finder ever</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<form name="form" action="" method="get">
+  <h2>Repository Finder</h2>
+    <div class="form-group">
+      <label for="username">Repository name:</label>
+	  <input type="text" name="username" placeholder="Enter the name of a repository">
+    </div>
+	 <input type="button" class="btn btn-success" value="Submit">
+	 <input type="submit" value="Search" id="boton1" onclick = "consultaGithub();">
+	 </form>
+</div>
+
+<script>
+  function consultaGithub(){
+    var usuario = document.getElementById("username").value;
+    alert("#usuario");
+    fetch(`https://api.github.com/users/${"#usuario"}/repos`)
+      .then(reponse => response.json())
+      .then(data => {
+        console.log(data)
+      })
+}
+</script>
+
+<div class="container">
+  <h3>Result Table:</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Followers</th>
+      </tr>
+    </thead>
+	</table>
+</div>
+
+</body>
+</html>
